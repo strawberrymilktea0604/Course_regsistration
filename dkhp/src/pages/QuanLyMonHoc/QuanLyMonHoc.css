@@ -1,0 +1,970 @@
+.nganh-management-container {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  max-width: 100%;
+}
+
+.nganh-management-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Search container styling - match QuanLyTaiKhoan */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+  width: 300px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: #0066cc;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-button span {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.nganh-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.nganh-table-container {
+  overflow-x: auto;
+}
+
+.nganh-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.nganh-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.nganh-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Column width classes - similar to QuanLyTaiKhoan */
+.id-col {
+  width: 50px;
+}
+
+.ma-nganh-col {
+  width: 120px;
+}
+
+.ten-nganh-col {
+  width: 200px;
+}
+
+.khoa-col {
+  width: 180px;
+}
+
+.actions-col {
+  width: 60px;
+}
+
+/* Table row hover effect */
+.nganh-table tbody tr:hover {
+  background-color: #f5f8ff;
+}
+
+.options-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Search section styling */
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-options {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-option {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-option.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Add these styles for advanced filtering */
+.advanced-filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.sort-button.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.sort-button svg {
+  font-size: 16px;
+}
+
+.khoa-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-icon {
+  color: #666;
+  margin-right: 8px;
+}
+
+/* Styles for the dropdown */
+.dropdown-container {
+  width: 200px;
+}
+
+.khoa-dropdown {
+  font-size: 14px;
+}
+
+/* Override some react-select styles to match your app's theme */
+.khoa-dropdown .css-1s2u09g-control {
+  border-color: #ddd;
+  box-shadow: none;
+}
+
+.khoa-dropdown .css-1pahdxg-control {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 1px #0066cc;
+}
+
+.khoa-dropdown .css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+/* Add this to your CSS file */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100; /* Higher than modal-overlay */
+}
+
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.create-nganh-modal {
+  background-color: #0066cc;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 95vw;
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  padding: 0; /* Remove padding to work with sticky elements */
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  background-color: #0066cc;
+  padding: 20px 0;
+  margin: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nganh-form {
+  margin: 0;
+  padding: 20px 40px 80px 40px; /* Add padding to the form content instead */
+}
+
+.modal-actions {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: sticky;
+  bottom: 0;
+  background-color: #0066cc;
+  padding: 15px;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-btn, .cancel-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirm-btn {
+  background-color: white;
+  color: #0066cc;
+}
+
+.confirm-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.confirm-btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Confirmation modal */
+.confirmation-modal {
+  background-color: #0069d9;
+  color: white;
+  padding: 30px 50px;
+  border-radius: 5px;
+  text-align: center;
+  width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Thêm Chuyên ngành form styles */
+.chuyen-nganh-form {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.chuyen-nganh-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.chuyen-nganh-actions .confirm-btn, 
+.chuyen-nganh-actions .cancel-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.chuyen-nganh-actions .confirm-btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* Added specialized major info */
+.added-chuyen-nganh {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chuyen-nganh-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chuyen-nganh-label {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.chuyen-nganh-value {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Bachelor Degree form styles */
+.bac-dai-hoc-form {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.bac-dai-hoc-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.validation-error {
+  color: #ff9999;
+  font-size: 14px;
+  margin-top: 5px;
+  font-style: italic;
+  text-align: right;
+}
+
+/* Added bachelor degree info display */
+.added-bac-dai-hoc {
+  margin-top: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.bac-dai-hoc-info {
+  margin-bottom: 15px;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: 500;
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+.info-value {
+  font-weight: 600;
+}
+
+.hoc-ky-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  display: block;
+  margin: 10px auto 0;
+  transition: background-color 0.2s;
+}
+
+.hoc-ky-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Chuyên ngành dropdown styles */
+.chuyen-nganh-dropdown-container {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.chuyen-nganh-dropdown-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: white;
+}
+
+.chuyen-nganh-dropdown {
+  width: 100%;
+  color: #333;
+}
+
+/* Override react-select styling to match the theme */
+.chuyen-nganh-dropdown .Select__control {
+  background-color: white;
+  border-color: #ddd;
+}
+
+.chuyen-nganh-dropdown .Select__menu {
+  background-color: white;
+  z-index: 9999;
+}
+
+.chuyen-nganh-dropdown .Select__option--is-selected {
+  background-color: #0066cc;
+}
+
+.chuyen-nganh-dropdown .Select__option:hover {
+  background-color: #e6f0ff;
+}
+
+/* Bachelor degree dropdown styles */
+.bac-dai-hoc-dropdown-container {
+  margin: 15px 0;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.bac-dai-hoc-dropdown-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: white;
+}
+
+.bac-dai-hoc-dropdown {
+  width: 100%;
+  color: #333;
+}
+
+/* Override react-select styling to match the theme */
+.bac-dai-hoc-dropdown .Select__control {
+  background-color: white;
+  border-color: #ddd;
+}
+
+.bac-dai-hoc-dropdown .Select__menu {
+  background-color: white;
+  z-index: 9999;
+}
+
+.bac-dai-hoc-dropdown .Select__option--is-selected {
+  background-color: #0066cc;
+}
+
+.bac-dai-hoc-dropdown .Select__option:hover {
+  background-color: #e6f0ff;
+}
+
+/* Button styles for Thêm Chuyên ngành and Thêm Bậc đại học */
+.chuyen-nganh-btn, 
+.bac-dai-hoc-btn,
+.hoc-ky-btn {
+  background-color: white;
+  color: #0066cc;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  margin: 10px 0;
+}
+
+.chuyen-nganh-btn:hover, 
+.bac-dai-hoc-btn:hover,
+.hoc-ky-btn:hover {
+  background-color: #f0f7ff;
+}
+
+/* Plus sign styling */
+.chuyen-nganh-btn:before, 
+.bac-dai-hoc-btn:before,
+.hoc-ky-btn:before {
+  content: "+";
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Specialized button inside a section */
+.added-chuyen-nganh .bac-dai-hoc-btn {
+  margin: 10px auto;
+  display: block;
+  width: auto;
+}
+
+/* Make sure buttons are centered inside their containers */
+.chuyen-nganh-btn {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Add to QuanLyMonHoc.css */
+.hoc-ky-container {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #0066cc;
+  border-radius: 8px;
+  background-color: #0b7dda; /* Nền xanh */
+  color: #fff; /* Chữ trắng */
+}
+
+.hoc-ky-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.hoc-ky-header h3 {
+  color: #fff;
+}
+
+.hoc-ky-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.embedded-mon-hoc-form {
+  background-color: #0b7dda;
+  border: 1px solid #0066cc;
+  border-radius: 10px;
+  padding: 22px 18px 16px 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.08);
+  color: #fff;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.form-row label {
+  width: 105px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 15px;
+  text-align: right;
+  padding-right: 10px;
+  letter-spacing: 0.2px;
+}
+
+.form-row input {
+  width: 150px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  background: #e6f0ff;
+  color: #222;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+.form-row input[type="number"] {
+  width: 70px;
+  text-align: center;
+}
+
+.form-row input:focus {
+  border: 1.5px solid #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.13);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  gap: 20px;
+}
+
+.form-actions .confirm-btn {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-actions .confirm-btn:hover {
+  background-color: #0052a3;
+}
+
+.validation-error {
+  color: #ffb3b3;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  background-color: rgba(229, 57, 53, 0.08);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.delete-btn, .delete-mon-hoc-btn {
+  background-color: #f44336 !important;;
+  color: white !important;;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 33px;
+}
+
+.delete-btn:hover, .delete-mon-hoc-btn:hover {
+  background-color: #d32f2f !important;;
+}
+
+.mon-hoc-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.mon-hoc-table th {
+  background-color: #0066cc;
+  padding: 6px 8px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.mon-hoc-table td {
+  padding: 5px 8px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  vertical-align: middle;
+}
+
+/* Điều chỉnh độ rộng các cột */
+.mon-hoc-table th:nth-child(1), .mon-hoc-table td:nth-child(1) { /* Mã môn */
+  width: 70px;
+}
+
+.mon-hoc-table th:nth-child(3), .mon-hoc-table td:nth-child(3) { /* Loại hình */
+  width: 80px;
+}
+
+.mon-hoc-table th:nth-child(4), .mon-hoc-table td:nth-child(4) { /* Số tín chỉ */
+  width: 50px;
+  text-align: center;
+}
+
+.mon-hoc-table th:nth-child(5), .mon-hoc-table td:nth-child(5) { /* Thao tác */
+  width: 100px;
+  text-align: right;
+}
+
+/* Thu gọn các nút thao tác */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.action-buttons .action-btn {
+  padding: 3px 8px;
+  font-size: 12px;
+  min-width: 40px;
+}
+
+/* Thu gọn footer tổng kết */
+.mon-hoc-table tfoot td {
+  padding: 5px 8px;
+  font-size: 13px;
+}
+
+/* Thu gọn thông báo không có môn học */
+.no-mon-hoc {
+  padding: 10px;
+  font-size: 13px;
+}
+
+/* Style cho nút Sửa */
+.edit-btn {
+  background-color: #0066cc !important;
+  color: #fff !important;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  min-width: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #0461bd !important;
+}
+
+.edit-btn:active {
+  background-color: #0461bd !important;
+  transform: translateY(1px);
+}
+
+/* Đảm bảo nút Sửa và Xóa có cùng kích thước */
+.action-buttons .edit-btn, 
+.action-buttons .delete-btn {
+  height: 24px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Đổi màu dấu * sang đỏ */
+.non-cumulative-badge {
+  color: #f44336; /* Màu đỏ thay vì màu vàng */
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  vertical-align: text-top;
+}
+
+/* Tùy chọn: Làm nổi bật hơn với hiệu ứng */
+.non-cumulative-badge:hover {
+  text-shadow: 0px 0px 3px rgba(244, 67, 54, 0.5);
+}
+
+/* Style cho nút Thêm môn học */
+.add-mon-hoc-btn {
+  background-color: #fff;
+  color: #0066cc;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 35px;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.add-mon-hoc-btn:hover {
+  background-color: #e6f0ff;
+}
+
+.add-mon-hoc-btn:active {
+  background-color: #d6e9ff;
+  transform: translateY(1px);
+}
+
+/* Tùy chọn: thêm biểu tượng + trước text */
+.add-mon-hoc-btn::before {
+  content: "+";
+  margin-right: 6px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style cho nút xóa học kỳ để đồng bộ kích thước */
+.delete-hoc-ky-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 35px;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.delete-hoc-ky-btn:hover {
+  background-color: #d32f2f;
+}
+
+.delete-hoc-ky-btn:active {
+  background-color: #c62828;
+  transform: translateY(1px);
+}
+
+/* Style cho container chứa các nút */
+.hoc-ky-header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.specialized-major-dropdown-container {
+  margin: 15px 0;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.specialized-major-dropdown-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: white;
+}
+
+.specialized-major-dropdown {
+  width: 100%;
+  color: #333;
+}
+
+/* Override react-select styling to match the theme */
+.specialized-major-dropdown .Select__control {
+  background-color: white;
+  border-color: #ddd;
+}
+
+.specialized-major-dropdown .Select__menu {
+  background-color: white;
+  z-index: 9999;
+}
+
+.specialized-major-dropdown .Select__option--is-selected {
+  background-color: #0066cc;
+}
+
+.specialized-major-dropdown .Select__option:hover {
+  background-color: #e6f0ff;
+}

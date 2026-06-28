@@ -1,0 +1,760 @@
+.account-management {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+  width: 300px;
+}
+
+.search-icon {
+  color: #666;
+  margin-right: 8px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.add-account-btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: #0066cc;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.accounts-table-container {
+  overflow-x: auto;
+}
+
+.accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.accounts-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.accounts-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-role {
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.student-role {
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Column widths */
+.id-col {
+  width: 50px;
+}
+
+.name-col {
+  width: 180px;
+}
+
+.phone-col {
+  width: 120px;
+}
+
+.email-col {
+  width: 200px;
+}
+
+.code-col {
+  width: 100px;
+}
+
+.role-col {
+  width: 100px;
+}
+
+.actions-col {
+  width: 60px;
+}
+
+/* Ensure table rows have hover effect */
+.accounts-table tbody tr:hover {
+  background-color: #f5f8ff;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-options {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-option {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-option.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.advanced-filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.sort-button.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.sort-button svg {
+  font-size: 16px;
+}
+
+.role-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Add these styles for the create account modal */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.create-account-modal {
+  background-color: #0066cc;
+  border-radius: 8px;
+  width: 850px; /* Increased from 700px */
+  max-width: 95vw;
+  padding: 40px; /* Increased from 30px */
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.account-type-selection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.account-type-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.account-type-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.account-type-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 36px;
+}
+
+.admin-icon {
+  color: #0066cc;
+}
+
+.student-icon {
+  color: #0066cc;
+}
+
+.account-type-label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.confirm-btn, .cancel-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirm-btn {
+  background-color: white;
+  color: #0066cc;
+}
+
+.confirm-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure the add account button has the right styling */
+.add-account-btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: #0066cc;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Add these styles for the account form */
+
+.account-form {
+  margin: 0 auto 30px;
+  max-width: 500px;
+}
+
+.form-row {
+  margin-bottom: 20px; /* Increased from 15px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-row label {
+  width: 120px;
+  text-align: right;
+  margin-right: 15px;
+  font-weight: 500;
+  color: white;
+  flex-shrink: 0;
+}
+
+.form-row input {
+  flex: 0 1 240px; /* Changed from flex: 1 to flex: 0 1 240px */
+  max-width: 240px;
+  padding: 12px; /* Increased from 10px */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; /* Increased from 15px */
+}
+
+.form-row input:focus {
+  outline: 2px solid #80b3ff;
+}
+
+/* Add these styles for the student form */
+
+.student-form {
+  display: flex;
+  gap: 30px; /* Increased from 20px */
+}
+
+.form-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.class-row {
+  display: flex;
+}
+
+/* Modify the class input fields to be narrower */
+.class-inputs {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  max-width: 240px; /* Match the width of other inputs */
+}
+
+.class-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* For the form row that contains the class fields specifically */
+.form-row.class-row {
+  justify-content: center; /* Align to the center */
+}
+
+/* Adjust the inputs following labels */
+.form-row label + input {
+  max-width: 240px; /* Limit width of inputs to be more balanced */
+}
+
+/* Matching styles for all inputs in the form */
+.form-row input, 
+.form-row .class-inputs input,
+.form-row select {
+  flex: 0 1 240px; /* Changed from flex: 1 to flex: 0 1 240px */
+  max-width: 240px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.account-form.student-form.two-columns {
+  display: flex;
+  gap: 120px; /* Tăng khoảng cách giữa hai cột */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.account-form .form-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.account-form .form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.account-form .form-row label {
+  width: 120px;
+  text-align: right;
+  margin-right: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.account-form .form-row input {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: none;
+  background: #fff;
+  color: #222;
+}
+
+.account-form .form-row.group-row input {
+  flex: unset;
+  width: 48%;
+  min-width: 80px;
+}
+
+.account-form .form-row.group-row input + input {
+  margin-left: 10px;
+}
+
+/* Styling cho modal xác nhận xóa */
+.confirmation-modal {
+  background-color: #0069d9;
+  color: white;
+  padding: 30px 50px;
+  border-radius: 5px;
+  text-align: center;
+  width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.confirm-actions button {
+  padding: 10px 30px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.confirm-actions .confirm-btn {
+  background-color: white;
+  color: #0069d9;
+  border: none;
+}
+
+.confirm-actions .cancel-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+/* View form styles */
+.view-form .form-row label {
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.view-form .form-row .view-value {
+  color: #212529;
+  font-weight: 600;
+  flex: 1;
+}
+
+.view-form .form-row {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.view-form.account-form {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+/* Role-specific styling */
+.admin-role-view {
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+.student-role-view {
+  color: #198754;
+  font-weight: bold;
+}
+
+/* View modal form layout */
+.account-form.view-form {
+  background: transparent;
+  border-radius: 12px;
+  padding: 32px 32px 24px 32px;
+  margin: 0 auto 24px auto;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-form.view-form.single-col {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border-radius: 12px;
+  padding: 32px 32px 24px 32px;
+}
+
+.account-form.view-form.single-col .form-row {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.account-form.view-form.single-col .form-row label {
+  min-width: 120px;
+  color: rgba(255, 255, 255, 0.8); /* Màu trắng nhạt */
+  font-weight: 500;
+  text-align: right;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.account-form.view-form.single-col .form-row .view-value {
+  color: #ffffff; /* Màu trắng đậm */
+  font-weight: 600;
+  text-align: left;
+  flex: 1;
+  word-break: break-word;
+}
+
+.account-form.view-form.two-cols-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* Bỏ background trắng */
+  border-radius: 12px;
+  padding: 32px 32px 24px 32px;
+  margin: 0 auto 24px auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.view-cols {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.view-col {
+  width: calc(50% - 20px);
+  min-width: 0; /* Cho phép co lại khi cần */
+  max-width: calc(50% - 20px);
+}
+
+/* Đảm bảo form-row giữ nguyên trên một dòng */
+.account-form.view-form .form-row {
+  display: flex;
+  margin-bottom: 14px;
+  align-items: center;
+  flex-wrap: nowrap; /* Không cho phép xuống dòng */
+  overflow: hidden; /* Ẩn nội dung tràn */
+}
+
+.account-form.view-form .form-row label {
+  width: 120px;
+  min-width: 120px; /* Đảm bảo không co lại */
+  color: rgba(255, 255, 255, 0.8); /* Màu trắng nhạt */
+  font-weight: 500;
+  text-align: right;
+  margin-right: 10px;
+  white-space: nowrap; /* Ngăn label xuống dòng */
+}
+
+.account-form.view-form .view-value {
+  color: #ffffff; /* Màu trắng đậm */
+  font-weight: 600;
+  white-space: nowrap; /* Ngăn giá trị xuống dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu ... nếu quá dài */
+  flex: 1;
+  min-width: 0; /* Quan trọng để text-overflow hoạt động */
+}
+
+/* Đối với email và các giá trị dài khác */
+.account-form.view-form .form-row.email-row .view-value {
+  font-size: 14px; /* Giảm kích thước chữ cho email nếu cần */
+}
+
+@media (max-width: 900px) {
+  .account-form.view-form.two-cols-centered .view-cols {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  .view-col {
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 16px;
+  }
+}
+
+/* Add these styles for the input with dropdown */
+
+.input-with-dropdown {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 15px;
+}
+
+.code-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.batch-dropdown {
+  width: 100px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #f8f9fa;
+}
+
+.input-with-label {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  height: 33px; /* Chiều cao cố định để đồng bộ với các trường khác */
+  gap: 20px;
+}
+
+.batch-label,
+.section-input {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.batch-label {
+  min-width: 115px;
+  width: 115px;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.section-input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  height: 100%;
+}
+
+.form-row.group-row {
+  margin-bottom: 16px;
+  height: 38px; /* Đảm bảo chiều cao đồng nhất */
+}

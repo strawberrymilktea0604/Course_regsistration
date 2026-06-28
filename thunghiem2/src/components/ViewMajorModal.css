@@ -1,0 +1,287 @@
+/* ViewMajorModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.view-modal-content {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide overflow except for modal-body */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background-color: #0066cc;
+  color: white;
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto; /* Only this part scrolls */
+  padding: 0;
+  max-height: calc(90vh - 120px); /* Leave room for header and footer */
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.major-info {
+  padding: 20px 24px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.info-label {
+  width: 120px;
+  font-weight: 500;
+  color: #555;
+  font-size: 16px;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.section-title {
+  color: #0066cc;
+  padding: 15px 24px 5px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.semester-details {
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.semester-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.semester-name {
+  font-weight: 500;
+  font-size: 18px;
+  color: #333;
+}
+
+.semester-total {
+  color: #666;
+  font-size: 15px;
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.courses-table th {
+  background-color: #f0f0f0;
+  font-weight: 500;
+  color: #444;
+}
+
+.non-cumulative {
+  background-color: #fff8e1;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-cumulative {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge-non {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.cancel-btn {
+  background-color: #0066cc !important;
+  color: white !important;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+  background-color: #0055aa !important;
+}
+
+/* Bậc đào tạo tabs */
+.bac-dao-tao-section {
+  margin-top: 20px;
+}
+
+.bac-dao-tao-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  outline: none;
+}
+
+.tab-button:hover {
+  color: #0066cc;
+}
+
+.tab-button.active {
+  color: #0066cc;
+  border-bottom: 3px solid #0066cc;
+  font-weight: 600;
+}
+
+.total-credits-summary {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 24px;
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.total-credits-summary h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 16px;
+  border-bottom: 1px solid #e1e4e8;
+  padding-bottom: 8px;
+}
+
+.credits-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.credits-row.highlight {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2980b9;
+  border-bottom: 1px solid #e1e4e8;
+  border-top: 1px solid #e1e4e8;
+  padding: 8px 0;
+  margin: 8px 0;
+}
+
+.credits-label {
+  color: #555;
+}
+
+.credits-value {
+  font-weight: 500;
+}
+
+.semester-total.cumulative {
+  margin-left: 15px;
+  color: #2980b9;
+  font-size: 0.9em;
+}
+
+/* Styles for specialization dropdown */
+.specialization-dropdown {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-left: 5px;
+  background-color: #fff;
+  min-width: 200px;
+  font-size: 14px;
+}
+
+.specialization-dropdown:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.specialization-selector {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,932 @@
+/* Main container */
+.section-management {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Search and filter section */
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 10px;
+  width: 300px;
+}
+
+.search-icon {
+  color: #666;
+  margin-right: 8px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.add-section-btn {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Restore original background */
+  color: #0066cc; /* Restore original color */
+  border: 1px solid #0066cc; /* Restore original border */
+  border-radius: 4px;
+  padding: 8px 16px; /* Restore original padding */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* gap: 5px; */ /* Remove gap if using margin on icon */
+}
+
+.add-section-btn:hover {
+  background-color: #0066cc; /* Restore original hover background */
+  color: white; /* Restore original hover color */
+  /* border-color: #1e7e34; */ /* Remove green hover border */
+}
+
+.add-icon {
+  font-size: 18px;
+  margin-right: 8px; /* Restore margin for spacing */
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-options {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-option {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-option.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.advanced-filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.sort-button.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.dropdown-container {
+  width: 200px;
+}
+
+/* Table styles */
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.sections-table-container {
+  overflow-x: auto;
+}
+
+.sections-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.sections-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.sections-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Column widths */
+.id-col {
+  width: 50px;
+}
+
+.code-col {
+  width: 100px;
+}
+
+.name-col {
+  width: 200px;
+}
+
+.section-code-col {
+  width: 90px;
+}
+
+.lecturer-col {
+  width: 150px;
+}
+
+.capacity-col {
+  width: 80px;
+}
+
+.enrollment-col {
+  width: 80px;
+}
+
+.actions-col {
+  width: 60px;
+}
+
+/* Enrollment status styling */
+.enrollment-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-low {
+  background-color: #e3f5e3;
+  color: #2e8b57;
+}
+
+.status-medium {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+.status-full {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+/* Table hover effect */
+.sections-table tbody tr:hover {
+  background-color: #f5f8ff;
+}
+
+/* Options button styling */
+.options-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* No results message */
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* --- Semester Controls --- */
+.semester-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.semester-select-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.semester-select-group label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.semester-dropdown {
+  width: 300px; /* Adjust width as needed */
+  font-size: 14px;
+}
+
+.semester-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.semester-action-btn {
+  display: flex;
+  align-items: center;
+  /* gap: 5px; */ /* Remove gap if using margin on icon */
+  gap: 8px; /* Match add button spacing (adjust icon margin if needed) */
+  /* padding: 6px 12px; */ /* Remove old padding */
+  padding: 8px 16px; /* Match add button padding */
+  border-radius: 4px;
+  /* border: 1px solid transparent; */ /* Remove transparent border */
+  border: 1px solid #0066cc; /* Add blue border */
+  cursor: pointer;
+  font-size: 14px; /* Match add button text size (adjust if needed) */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background-color: white; /* Add white background */
+  color: #0066cc; /* Add blue text */
+}
+
+/* General hover state for all semester buttons */
+.semester-action-btn:hover:not(:disabled) {
+  background-color: #0066cc; /* Blue background on hover */
+  color: white; /* White text on hover */
+  border-color: #0066cc; /* Keep blue border or make darker e.g., #0056b3 */
+}
+.semester-action-btn.edit:disabled {
+  background-color: #e9ecef; /* Keep disabled style */
+  color: #6c757d; /* Keep disabled style */
+  border-color: #ced4da; /* Keep disabled style */
+  cursor: not-allowed;
+}
+.semester-action-btn.delete:disabled {
+  background-color: #e9ecef; /* Keep disabled style */
+  color: #6c757d; /* Keep disabled style */
+  border-color: #ced4da; /* Keep disabled style */
+  cursor: not-allowed;
+}
+
+/* Optional: Ensure icons inside semester buttons are also blue */
+.semester-action-btn .MuiSvgIcon-root { /* Adjust if using a different icon component */
+   color: #0066cc;
+}
+.semester-action-btn:hover:not(:disabled) .MuiSvgIcon-root {
+   color: white;
+}
+.semester-action-btn:disabled .MuiSvgIcon-root {
+   color: #6c757d;
+}
+
+/* --- Semester Modal Styles --- */
+.semester-modal {
+  background-color: #ffffff; /* White background for semester modals */
+  color: #333; /* Dark text */
+  border-radius: 8px;
+  width: 600px; /* Adjust width */
+  max-width: 95vw;
+  max-height: 90vh;
+  padding: 0px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.semester-modal .modal-title {
+  background-color: #0066cc; /* Keep header blue */
+  color: white;
+  position: sticky;
+  top: 0;
+  padding: 15px 0;
+  margin: 0;
+  z-index: 10;
+  border-bottom: 1px solid #0056b3;
+  font-size: 20px;
+  text-align: center;
+}
+
+.semester-form {
+  padding: 20px 30px;
+  background-color: #0066cc;
+}
+
+.semester-form .form-group {
+  margin-bottom: 20px;
+}
+
+.semester-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.semester-form .form-input,
+.semester-form .form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  font-size: 14px;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+.semester-form .form-input:focus,
+.semester-form .form-select:focus {
+  color: black;
+  background-color: white;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+.semester-form .date-input::placeholder {
+  color: #6c757d;
+}
+
+.semester-modal .modal-actions {
+  background-color: #0066cc; /* Light grey footer */
+  padding-top: 20px;
+  display: flex;
+  justify-content: center; /* Align buttons to the right */
+  gap: 10px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.semester-modal .confirm-btn {
+  background-color: #0066cc;
+  color: white;
+  border: 1px solid #ffffff;
+}
+.semester-modal .confirm-btn:hover {
+  background-color: #0056b3;
+  border-color: #ffffff;
+}
+
+.semester-modal .confirm-btn:disabled {
+  background-color: #e9ecef; /* Màu nền xám nhạt */
+  color: #6c757d; /* Màu chữ xám */
+  border-color: #ced4da; /* Màu viền xám */
+  cursor: not-allowed; /* Con trỏ không cho phép */
+}
+
+.semester-modal .cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #ffffff;
+}
+.semester-modal .cancel-btn:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+/* Adjust section modal to use common class */
+.section-modal {
+  background-color: #0066cc; /* White background */
+  color: white; /* Dark text */
+  border-radius: 8px;
+  width: 800px; /* Keep original width or adjust */
+  max-width: 95vw;
+  max-height: 90vh;
+  padding: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-modal .modal-title {
+  background-color: #0066cc; /* Blue header */
+  color: white;
+  position: sticky;
+  top: 0;
+  padding: 15px 0;
+  margin: 0;
+  z-index: 10;
+  border-bottom: 1px solid #0056b3;
+  font-size: 20px;
+  text-align: center;
+}
+
+.section-form {
+  padding: 20px 30px;
+}
+
+.section-form .form-group {
+  margin-bottom: 15px;
+}
+
+.section-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: white;
+  font-size: 14px;
+}
+
+.section-form .form-input,
+.section-form .form-select,
+.section-form .form-textarea,
+.section-form .Select__control { /* Target react-select control */
+  width: 100%;
+  padding: 10px;
+  color: black;
+  border: 1px solid #80b3ff;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.section-form .form-textarea {
+    min-height: 80px;
+}
+
+.section-form .Select__control {
+    padding: 2px; /* Adjust padding for react-select */
+}
+.section-form .Select__value-container {
+    padding: 0 8px;
+}
+.section-form .Select__input-container {
+    padding: 0;
+    margin: 0;
+}
+
+
+.section-form .form-input:focus,
+.section-form .form-select:focus,
+.section-form .form-textarea:focus,
+.section-form .Select__control--is-focused { /* Target focused react-select */
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+
+/* Code input group adjustments */
+.code-input-group {
+  display: flex;
+  align-items: center;
+}
+.course-code-display {
+  padding: 10px;
+  background-color: #86aad0;
+  border: 1px solid #ced4da;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.section-code-input {
+  border-radius: 0 4px 4px 0 !important; /* Override general input style */
+  flex-grow: 1;
+}
+
+/* Style for the displayed course code below the dropdown */
+.course-code-display {
+  margin-top: 5px; /* Add some space above */
+  font-size: 0.9em; /* Slightly smaller font */
+  color: #555; /* Grey color */
+  padding: 5px 0; /* Add some padding */
+}
+
+/* Style for the split input group */
+.split-input-group {
+  display: flex; /* Arrange prefix and suffix side-by-side */
+  align-items: center; /* Align items vertically */
+  border: 1px solid #ccc; /* Match form input border */
+  border-radius: 4px; /* Match form input border-radius */
+  background-color: #fff; /* Background for the group */
+}
+
+/* Style for the non-editable prefix (course code) */
+.split-input-prefix {
+  padding: 8px 12px; /* Match input padding */
+  background-color: #eee; /* Grey background for non-editable part */
+  border-right: 1px solid #ccc; /* Separator line */
+  color: #333;
+  white-space: nowrap; /* Prevent wrapping */
+  font-weight: bold; /* Make prefix bold */
+}
+
+/* Style for the editable suffix input */
+.split-input-suffix {
+  flex-grow: 1; /* Allow input to take remaining space */
+  border: none; /* Remove individual border */
+  outline: none; /* Remove outline on focus */
+  padding: 8px 12px; /* Match input padding */
+  border-radius: 0 4px 4px 0; /* Adjust radius */
+  background-color: transparent; /* Make background transparent */
+}
+
+/* Remove border from the main input when it's part of the split group */
+.split-input-group .form-input.split-input-suffix {
+    border: none;
+    box-shadow: none; /* Remove any potential box-shadow */
+}
+
+/* Optional: Style when the suffix input is disabled */
+.split-input-group input:disabled {
+    background-color: #f9f9f9; /* Lighter grey when disabled */
+    cursor: not-allowed;
+}
+.split-input-group .split-input-prefix:has(+ input:disabled) {
+   background-color: #f0f0f0; /* Slightly adjust prefix background too */
+}
+
+
+/* Hint text styling (already exists, maybe adjust margin) */
+.form-hint {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Schedule section adjustments */
+.schedules-section {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #dee2e6;
+}
+.schedules-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.schedules-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.add-schedule-btn {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Restore original background */
+  color: #0066cc; /* Restore original color */
+  border: 1px solid #0066cc; /* Restore original border */
+  border-radius: 4px;
+  padding: 8px 16px; /* Restore original padding */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.add-schedule-btn:hover {
+  background-color: #075db3; /* Restore original hover background */
+  color: white;
+  border-color: #ffffff
+}
+
+.schedule-item {
+  background-color: #799ec3;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #e9ecef;
+}
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #799ec3 ;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e9ecef;
+}
+.schedule-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.remove-schedule-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+.remove-schedule-btn:hover {
+  color: #a71d2a;
+}
+
+
+.section-modal .modal-actions {
+  background-color: #0066cc; /* Light grey footer */
+  padding: 15px;
+  display: flex;
+  justify-content: center; /* Align buttons to the right */
+  gap: 10px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.section-modal .confirm-btn {
+  background-color: #0066cc;
+  color: white;
+  border: 1px solid #ffffff;
+}
+.section-modal .confirm-btn:hover {
+  background-color: #0056b3;
+  border: 1px solid #ffffff;
+}
+.section-modal .confirm-btn:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  border-color: #545b62;
+  cursor: not-allowed;
+}
+
+.section-modal .cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #ffffff;
+}
+.section-modal .cancel-btn:hover {
+  background-color: #5a6268;
+  border-color: #ffffff;
+}
+
+/* Ensure react-select dropdowns appear above modal content */
+.form-select .css-26l3qy-menu { /* Adjust class name if needed */
+  z-index: 1050 !important; /* Higher than modal overlay */
+}
+.semester-dropdown .css-26l3qy-menu {
+  z-index: 1050 !important;
+}
+.department-dropdown .css-26l3qy-menu {
+  z-index: 1050 !important;
+}
+
+/* Adjust action button in table */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0066cc;
+  font-size: 16px;
+  padding: 5px;
+}
+.action-btn:hover {
+  color: #004fa0;
+}
+
+/* --- Alert Modal Styles --- */
+.alert-overlay {
+  z-index: 1200; /* Ensure it's above other modals */
+}
+
+.alert-modal {
+  background-color: #0066cc; /* Blue background */
+  color: #ffffff; /* White text */
+  padding: 25px 35px;
+  border-radius: 8px;
+  text-align: center;
+  width: 400px; /* Adjust width as needed */
+  max-width: 90vw;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #ffffff; /* White icon/header text */
+}
+
+.alert-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff; /* White title */
+}
+
+.alert-message {
+  font-size: 15px;
+  color: #f0f0f0; /* Slightly off-white for message */
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.alert-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.alert-ok-btn {
+  padding: 8px 25px;
+  border: 1px solid #0066cc; /* Add border for definition */
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #ffffff; /* White background */
+  color: #0066cc; /* Blue text */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.alert-ok-btn:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+  color: #0056b3; /* Slightly darker blue text on hover */
+}
+
+/* --- View Section Modal Styles --- */
+.view-section-modal {
+  background-color: #0066cc;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh; /* Limit height */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack title, content, actions vertically */
+  overflow: hidden; /* Prevent modal itself from scrolling */
+}
+
+.view-section-modal .modal-title {
+  text-align: center;
+  margin: 0;
+  padding: 20px 40px;
+  color: white;
+  background-color: #0066cc;
+  border-bottom: 1px solid #0056b3;
+  font-size: 1.6em;
+  border-radius: 10px 10px 0 0;
+  flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+/* Container for the scrollable content */
+.view-section-content {
+    padding: 25px 40px;
+    flex-grow: 1; /* Allow content to take available space */
+    overflow-y: auto; /* Make ONLY this part scrollable */
+    /* Remove background/border-radius if they were here */
+}
+
+.section-details {
+  margin-bottom: 0; /* Remove bottom margin if content padding is enough */
+}
+
+.detail-item {
+  margin-bottom: 12px;
+  font-size: 1em;
+  line-height: 1.6;
+  color: white;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.detail-item strong {
+  color: white;
+  min-width: 150px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.details-subtitle {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: white;
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.schedule-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.schedule-detail-item {
+  background-color: #6f9fd2;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.schedule-detail-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.notes-detail {
+  margin-top: 20px;
+  background-color: #f0f8ff;
+  border: 1px solid #cce7ff;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.notes-detail strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.notes-detail p {
+  margin: 0;
+  line-height: 1.6;
+  color: #46637f;
+}
+
+/* Actions are now a fixed footer */
+.view-modal-actions { /* Use the specific class */
+  padding: 15px 40px; /* Adjust padding as needed */
+  text-align: right;
+  background-color: #0066cc; /* Light background for footer */
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  border-radius: 0 0 10px 10px; /* Round bottom corners */
+  /* Remove margin-top if it exists */
+  margin-top: 0;
+}
+
+.view-modal-actions .cancel-btn { /* Style button within this specific footer */
+  padding: 10px 25px;
+  font-size: 1em;
+  background-color: #0066cc; /* Match header color */
+  border: 1px solid #ffffff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.view-modal-actions .cancel-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border: 1px solid #ffffff; /* Darker border on hover */
+}
+

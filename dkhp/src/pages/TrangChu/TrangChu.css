@@ -1,0 +1,196 @@
+/* Main container - xóa margin mặc định của body */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.trang-chu-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  overflow: hidden; /* Ngăn scroll-bar xuất hiện */
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #0066cc;
+  color: #fff;
+  height: 80px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  margin-right: 15px; /* Tạo khoảng cách với phần welcome-text */
+  position: relative; /* Để có thể định vị logo chính xác */
+  height: 100%; /* Để container chiếm cả chiều cao của header */
+}
+
+.logo {
+  height: 120px; /* Giảm kích thước logo */
+  width: auto;
+  margin: 0; /* Bỏ margin để dễ kiểm soát vị trí */
+  position: absolute; /* Định vị chính xác */
+  left: 40px; /* Điều chỉnh vị trí sang phải một chút */
+  top: 30px; /* Điều chỉnh vị trí xuống dưới một chút */
+  object-fit: contain; /* Đảm bảo logo hiển thị đúng tỷ lệ */
+}
+
+.welcome-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  width: 60px; /* Tăng từ 40px lên 50px */
+  height: 60px; /* Tăng từ 40px lên 50px */
+  background-color: gray;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateX(-100px);
+}
+
+/* User avatar styles - làm cho avatar có thể nhấn được */
+.user-avatar {
+  cursor: pointer; /* Hiển thị con trỏ tay khi hover */
+  transition: transform 0.2s ease; /* Hiệu ứng mượt mà khi hover */
+}
+
+.user-avatar:hover {
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+  opacity: 0.9; /* Hiệu ứng mờ nhẹ */
+}
+
+.user-avatar:active {
+  transform: scale(0.95); /* Thu nhỏ nhẹ khi click */
+}
+
+.user-avatar img {
+  width: 60px; /* Tăng từ 40px lên 50px */
+  height: 60px; /* Tăng từ 40px lên 50px */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main content layout */
+.main-content {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  margin: 0; /* Xóa margin */
+  padding: 0; /* Xóa padding */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 220px;
+  background: #0066cc; /* Đổi màu nền sang xanh dương */
+  padding-top: 90px; /* Tăng padding-top từ 30px lên 70px để đẩy các mục xuống thấp hơn */
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0; /* Xóa margin nếu có */
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  display: flex; 
+  flex-direction: column;
+  overflow: hidden; /* Ngăn overflow */
+}
+
+/* Style cho menu items */
+.menu-item {
+  display: flex;
+  flex-direction: column; /* Thay đổi từ row thành column */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  padding: 18px 10px; /* Tăng padding-top và padding-bottom */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 20px; /* Tăng font-size text */
+  margin-bottom: 0;
+  text-align: center;
+  height: 150px; /* Tăng height từ 80px lên 90px */
+  width: 100%; /* Đảm bảo menu-item lấp đầy toàn bộ chiều rộng */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+  margin: 0; /* Xóa margin */
+}
+
+/* Xóa hoặc sửa đổi style đặc biệt cho menu-item đầu tiên */
+.menu-item:first-child {
+  background-color: #0066cc; /* Dùng cùng màu với sidebar */
+  background-image: none; /* Bỏ gradient */
+  margin-top: 0;
+}
+
+.menu-item:hover {
+  background-color: #005bb8; /* Màu hover nhạt hơn một chút */
+}
+
+.menu-item.active {
+  background: #005bb8;
+  font-weight: bold;
+}
+
+/* Cập nhật style cho icon - làm to hơn */
+.menu-icon {
+  margin-right: 0; /* Bỏ margin bên phải */
+  margin-bottom: 12px; /* Tăng margin-bottom thêm chút nữa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px; /* Tăng kích thước icon từ 24px lên 28px */
+  color: white;
+  min-height: 36px; /* Tăng min-height từ 30px lên 36px */
+}
+
+/* Content area */
+.content-area {
+  flex: 1;
+  padding: 32px;
+  background-color: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+.greeting {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #0066cc; /* Màu xanh dương như trong ảnh */
+  margin-top: 80px;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+  white-space: nowrap; /* Giữ văn bản trên cùng một dòng */
+}
+
+.background-image {
+  min-height: 100%;
+  background: url('/background.jpg') center/cover no-repeat;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.3;
+  z-index: 1;
+}

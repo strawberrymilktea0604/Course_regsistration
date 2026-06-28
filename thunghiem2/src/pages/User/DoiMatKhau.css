@@ -1,0 +1,242 @@
+.content-area {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f6fa;
+}
+
+.password-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.password-title {
+  text-align: center;
+  color: #0066cc;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Style cho input với floating label */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #0066cc;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 50px;
+}
+
+/* Ẩn placeholder khi focus */
+.password-input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Style cho label floating */
+.floating-label {
+  position: absolute;
+  left: 65px; /* 50px cho icon + 15px padding */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0066cc;
+  pointer-events: none; /* Không cản trở việc click vào input */
+  transition: all 0.2s ease-out;
+  font-size: 16px;
+  opacity: 0.8;
+  background-color: transparent;
+}
+
+/* Di chuyển label khi input được focus hoặc có giá trị */
+.password-input:focus ~ .floating-label,
+.password-input:not(:placeholder-shown) ~ .floating-label {
+  top: -10px;
+  left: 65px;
+  font-size: 12px;
+  background-color: white;
+  padding: 0 5px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Đảm bảo input có placeholder trống để không hiển thị placeholder mặc định */
+.password-input::placeholder {
+  color: transparent; /* Làm cho placeholder mặc định trong suốt */
+}
+
+/* Style cho input - dựa trên App.css nhưng với màu sắc mới */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Nền trắng */
+  border: 2px solid #0066cc; /* Viền đậm màu xanh */
+  border-radius: 3px;
+  overflow: hidden;
+  height: 50px;
+}
+
+.input-icon {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Nền icon màu trắng */
+  height: 100%;
+}
+
+/* Thêm style cho icon khóa từ thư viện */
+.lock-icon {
+  color: #0066cc; /* Màu xanh cho icon */
+  font-size: 20px; /* Kích thước icon */
+}
+
+.input-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #0066cc; /* Icon màu xanh */
+}
+
+.password-input {
+  background-color: white; /* Nền trắng */
+  color: #333333; /* Chữ màu tối */
+  border: none;
+  flex: 1;
+  padding: 0 15px;
+  height: 100%;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Style cho placeholder */
+.password-input::placeholder {
+  color: #0066cc; /* Thay đổi màu placeholder thành xanh để phù hợp với icon */
+  opacity: 0.7; /* Thêm độ trong suốt để tạo hiệu ứng nhẹ nhàng hơn */
+}
+
+/* Hiệu ứng khi focus vào input */
+.input-with-icon:focus-within {
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
+  border-color: #0077cc; /* Màu viền khi focus */
+}
+
+/* Button đổi mật khẩu */
+.change-password-btn {
+  width: 100%;
+  background-color: #0066cc; /* Thay đổi từ #E9EDF0 sang xanh */
+  border: none;
+  color: white; /* Thay đổi từ #0F69C9 sang trắng */
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 15px;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.change-password-btn:hover:not(.btn-disabled) {
+  background-color: #0055b3; /* Màu xanh đậm hơn khi hover */
+  opacity: 1;
+}
+
+.btn-disabled {
+  background-color: #cccccc !important;
+  color: #777777 !important;
+  cursor: not-allowed;
+}
+
+/* Hiệu ứng nhập liệu - giữ nguyên hiệu ứng nhưng với màu xanh */
+.password-input:focus::placeholder {
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+/* Hiệu ứng khi typing */
+@keyframes typing-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.2); }
+  50% { box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.2); }
+}
+
+.input-with-icon:focus-within {
+  animation: typing-pulse 1.5s infinite;
+}
+
+/* Style cho popup xác nhận */
+.confirm-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirm-popup {
+  background-color: #0066cc;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  padding: 30px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirm-popup-content h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.confirm-button {
+  background-color: white;
+  color: #0066cc;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 100px;
+  transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #f0f0f0;
+}
