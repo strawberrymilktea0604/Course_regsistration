@@ -23,16 +23,16 @@ Repo hiện có 3 phần chính:
 
 <table>
   <tr>
-    <td align="center"><img src="images/login_screen.jpg" alt="Màn hình đăng nhập" width="100%"><br><sub>Màn hình đăng nhập</sub></td>
-    <td align="center"><img src="images/admin_dashboard.png" alt="Giao diện quản trị" width="100%"><br><sub>Trang quản trị</sub></td>
+    <td align="center"><img src="docs/images/login_screen.jpg" alt="Màn hình đăng nhập" width="100%"><br><sub>Màn hình đăng nhập</sub></td>
+    <td align="center"><img src="docs/images/admin_dashboard.png" alt="Giao diện quản trị" width="100%"><br><sub>Trang quản trị</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="images/mobile_timetable.jpg" alt="Thời khóa biểu trên mobile" width="100%"><br><sub>Đăng ký học phần trên mobile</sub></td>
-    <td align="center"><img src="images/system_architecture.png" alt="Sơ đồ hệ thống" width="100%"><br><sub>Sơ đồ hệ thống</sub></td>
+    <td align="center"><img src="docs/images/mobile_timetable.jpg" alt="Thời khóa biểu trên mobile" width="100%"><br><sub>Đăng ký học phần trên mobile</sub></td>
+    <td align="center"><img src="docs/images/system_architecture.png" alt="Sơ đồ hệ thống" width="100%"><br><sub>Sơ đồ hệ thống</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="images/usecase_overview.jpg" alt="Sơ đồ chức năng" width="100%"><br><sub>Sơ đồ chức năng</sub></td>
-    <td align="center"><img src="images/erd.png" alt="ERD" width="100%"><br><sub>Sơ đồ dữ liệu</sub></td>
+    <td align="center"><img src="docs/images/usecase_overview.jpg" alt="Sơ đồ chức năng" width="100%"><br><sub>Sơ đồ chức năng</sub></td>
+    <td align="center"><img src="docs/images/erd.png" alt="ERD" width="100%"><br><sub>Sơ đồ dữ liệu</sub></td>
   </tr>
 </table>
 
