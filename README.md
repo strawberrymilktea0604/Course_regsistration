@@ -32,7 +32,7 @@ Repo hiện có 3 phần chính:
   </tr>
   <tr>
     <td align="center"><img src="docs/images/usecase_overview.jpg" alt="Sơ đồ chức năng" width="100%"><br><sub>Sơ đồ chức năng</sub></td>
-    <td align="center"><img src="docs/images/erd.png" alt="ERD" width="100%"><br><sub>Sơ đồ dữ liệu</sub></td>
+    <td align="center"><img src="docs/images/erd.png" alt="ERD" width="100%"><br><sub>Sơ đồ Usecase</sub></td>
   </tr>
 </table>
 
